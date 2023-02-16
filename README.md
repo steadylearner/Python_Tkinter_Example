@@ -8,6 +8,14 @@
 
 ![Example app](./cover.png)
 
+[You can follow me at GitHub.]: https://github.com/steadylearner
+
+[You can contact or hire me at Telegram.]: https://t.me/steadylearner
+
+[Python_Tkinter_Example]: https://github.com/steadylearner/Python_Tkinter_Example
+
+[tinydb]: https://github.com/msiemens/tinydb
+
 In this post, we will learn how to make a simple GUI CLI translator app with Python Tkinter similar to the cover of this blog post.
 
 Before we start, please install Python and pip if you haven't yet. Then, read the docs for the packages we will use.
@@ -37,7 +45,7 @@ $brew link ffmpeg
 Then, you can see if it installed with `$ffmpeg -h` command.
 
 
-Testing those commands, you will see the Pthon GUI app. You can type what you want to translate at the Input Text form and it will show translated text at the Translated Text form below.
+Testing those commands, you will see the Python GUI app. You can type what you want to translate at the Input Text form and it will show translated text at the Translated Text form below.
 
 You can clear, paste a text from clipboard, copy the text to clipboard and make it speak repeatedly with the buttons. 
 
@@ -45,7 +53,7 @@ You can also use menu at the top to use your mic, text file or audio file as tex
 
 You can also edit a form setting for how it should work for your preferred languages and voices similar to the image below.
 
-![Settings](./Settings.png)
+![Settings](https://raw.githubusercontent.com/steadylearner/Python_Tkinter_Example/main/Settings.png)
 
 You can find the default values for them at `settings.py` similar to this.
 
@@ -75,9 +83,9 @@ It will help you make your own component and menu after you read this post.
 
 <!-- ## main.py -->
 
-The entry point for this Tkinter app will be [main.py](https://github.com/steadylearner/Python_Tkinter_Example/blob/main/main.py) file. It will be the most imporant part for this ap.
+The entry point for this Tkinter app will be [main.py](https://github.com/steadylearner/Python_Tkinter_Example/blob/main/main.py) file. It will be the most important part for this ap.
 
-To start withm you can see the code snippet at the end.
+To start with, you can see the code snippet at the end.
 
 ```py
 if __name__ == "__main__":
@@ -145,7 +153,7 @@ def read_voice_gender():
     return read_settings("form")[0]["details"]["voice_gender"]
 ```
 
-Here, we save some read and upsert features for form settings to functions so we can easily resue in other parts of the app.
+Here, we save some read and upsert features for form settings to functions so we can easily reuse in other parts of the app.
 
 We only need to save a single entry for form settings. You can include more settings to save here for your custom app later.
 
@@ -170,7 +178,7 @@ Those will be the main parts that make this app work at the behind. You can see 
 
 It translates the input text to what you set at settings whenever a user type something. It is debounced for a second because there are some rate limits from the google translator service we use for this app. 
 
-This will prevent the request is sent to it whenver user type and stop the app to work.
+This will prevent the request is sent to it whenever user type and stop the app to work.
 
 ```py
 input_text_value = tk.StringVar()
@@ -282,7 +290,7 @@ Here, we show a helpful error message to a user whenever any form settings optio
 
 You can test it with other options at the form settings and you will see the error similar to this.
 
-![Error](./error.png)
+![Error](https://raw.githubusercontent.com/steadylearner/Python_Tkinter_Example/main/error.png)
 
 ```py
 messagebox.showerror(
@@ -292,7 +300,7 @@ messagebox.showerror(
             )
 ```
 
-Then, if `read_voice_gender() != "None"` is True or if there was no text in the input text we don't send a queue to a speaker to speak the translated text. Othewise, you will hear something from your machine. This is included because not always there is a voice ready for a language. If you don't want to see the warning you can set VOICE_GENDER_OPTIONS to None.
+Then, if `read_voice_gender() != "None"` is True or if there was no text in the input text we don't send a queue to a speaker to speak the translated text. Otherwise, you will hear something from your machine. This is included because not always there is a voice ready for a language. If you don't want to see the warning you can set VOICE_GENDER_OPTIONS to None.
 
 ```py
 translated_text.config(state="normal")
@@ -300,7 +308,7 @@ translated_text.replace("1.0", tk.END, translated)
 translated_text.config(state="disabled")
 ```
 
-To preserve translated text, the translated_text is ineditable by default but, here we save the translated text first and make it ineditable again with the code snippet above.
+To preserve translated text, the translated_text is uneditable by default but, here we save the translated text first and make it uneditable again with the code snippet above.
 
 Until this, we learnt how to make your input text translated and hear it also. It is used for the GUI app but you will be able to use it in your web app or other projects also.
 
@@ -330,7 +338,7 @@ input_text.grid(row=2, column=1, sticky="ew")
 input_text_value = tk.StringVar()
 ```
 
-First, we start the app with `window = tk.Tk()` and set title with `window.title(APP_TITLE)` you can edit app title at settings.py to use another title. window here is a top level component for your gui app. It is easily accessable with `winfo_toplevel()` we will see later. You don't need to pass it to the other components to use its other method by using that.
+First, we start the app with `window = tk.Tk()` and set title with `window.title(APP_TITLE)` you can edit app title at settings.py to use another title. window here is a top level component for your gui app. It is easily accessible with `winfo_toplevel()` we will see later. You don't need to pass it to the other components to use its other method by using that.
 
 Then, we set menubar and assign to the window.
 
@@ -352,7 +360,7 @@ settings = Menu(menubar, tearoff=0)
 settings.add_command(label="Form", command=lambda: show_form_settings_dialog(window))
 ```
 
-![Menu](./menu.png)
+![Menu](https://raw.githubusercontent.com/steadylearner/Python_Tkinter_Example/main/menu.png)
 
 `FileMenu` here is a component and you can see it uses `window, q, input_text, translated_text, recognizer, microphone` variables inside.
 
@@ -569,7 +577,7 @@ class FileMenu(Menu):
 
 It has various methods you can use to use text or audio file as a text input source or save translated text to text or audio and reuse later.
 
-The ffmpeg is used with `subprocess` to turn mp3 file to wav extention because some packages used here allows different file formats.
+The ffmpeg is used with `subprocess` to turn mp3 file to wav extension because some packages used here allows different file formats.
 
 ```py
 subprocess.call(["ffmpeg", "-y", "-i", filepath, new_wav_filepath])
