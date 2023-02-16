@@ -13,5 +13,5 @@ VOICE_LANGUAGE_OPTIONS = [
 VOICE_GENDER_OPTIONS = ["VoiceGenderMale", "VoiceGenderFemale", "None"]
 
 APP_TITLE = "Tkinter Translator by Steadylearner"
-LABEL_FONT = ("Helvetica", 20, "bold")
+LABEL_FONT = (None, 20, "bold")
 TEXT_FONT = (None, 16)

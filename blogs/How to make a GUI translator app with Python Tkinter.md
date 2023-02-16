@@ -6,7 +6,7 @@
 
 [tinydb]: https://github.com/msiemens/tinydb
 
-![Example app](./cover.png)
+![Example app](../cover.png)
 
 In this post, we will learn how to make a simple GUI CLI translator app with Python Tkinter similar to the cover of this blog post.
 
@@ -45,7 +45,7 @@ You can also use menu at the top to use your mic, text file or audio file as tex
 
 You can also edit a form setting for how it should work for your preferred languages and voices similar to the image below.
 
-![Settings](./Settings.png)
+![Settings](../Settings.png)
 
 You can find the default values for them at `settings.py` similar to this.
 
@@ -282,7 +282,7 @@ Here, we show a helpful error message to a user whenever any form settings optio
 
 You can test it with other options at the form settings and you will see the error similar to this.
 
-![Error](./error.png)
+![Error](../error.png)
 
 ```py
 messagebox.showerror(
@@ -352,7 +352,7 @@ settings = Menu(menubar, tearoff=0)
 settings.add_command(label="Form", command=lambda: show_form_settings_dialog(window))
 ```
 
-![Menu](./menu.png)
+![Menu](../menu.png)
 
 `FileMenu` here is a component and you can see it uses `window, q, input_text, translated_text, recognizer, microphone` variables inside.
 

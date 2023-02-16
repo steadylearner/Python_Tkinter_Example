@@ -2,8 +2,6 @@
 
 [You can contact or hire me at Telegram.]: https://t.me/steadylearner
 
-[python_audio]: https://github.com/steadylearner/python_audio
-
 In this post, we will learn how to make a simple CLI translator with Python. You can use it to learn a language or test translator service etc.
 
 Before we start, please install Python and pip if you haven't yet. Then, read the docs for the packages we will use.
@@ -93,8 +91,6 @@ translated = GoogleTranslator(source='auto', target='pt').translate(what_you_typ
 ```
 
 The language options for the **pyttsx3** and the **deep_translator** can be different. You can test some of them for your target language.
-
-If you want to test other audio relevant features with Python, you can refer to [python_audio] repository.
 
 [You can follow me at GitHub.]
 

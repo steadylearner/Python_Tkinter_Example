@@ -1,8 +1,3 @@
-# $brew install python-tk
-# https://realpython.com/python-gui-tkinter/#building-a-text-editor-example-app
-# https://tkdocs.com/tutorial/index.html
-# https://www.pythontutorial.net/tkinter/tkinter-menu/
-
 import pyttsx3
 import threading
 import queue

@@ -4,7 +4,6 @@ from database import (
     read_voice_gender,
 )
 
-
 class InputTextButtons(Frame):
     def __init__(
             self, master, 
